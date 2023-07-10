@@ -188,7 +188,9 @@ func main() {
 	go func() {
 		for {
 			time.Sleep(time.Second*3)
-			g.SceneM.AddEnemy()
+			if g.SceneM.GetCurrNo() == manager.GameEnter {
+				g.SceneM.AddEnemy()
+			}
 		}
 	}()
 
@@ -196,7 +198,9 @@ func main() {
 	go func() {
 		for {
 			time.Sleep(time.Second*2)
-			g.SceneM.AddEnemyBullet()
+			if g.SceneM.GetCurrNo() == manager.GameEnter {
+				g.SceneM.AddEnemyBullet()
+			}
 		}
 	}()
 
